@@ -5,7 +5,7 @@
 project_id = "mwma"
 
 [api]
-enabled = true
+enabled = false
 # Port to use for the API URL.
 port = 54321
 # Schemas to expose in your API. Tables, views and stored procedures in this schema will get API
@@ -44,7 +44,7 @@ max_client_conn = 100
 
 [db.seed]
 # If enabled, seeds the database after migrations during a db reset.
-enabled = true
+enabled = false
 # Specifies an ordered list of seed files to load during db reset.
 # Supports glob patterns relative to supabase directory: './seeds/*.sql'
 sql_paths = ['./seed.sql']
@@ -242,7 +242,7 @@ enabled = false
 # user_pool_region = "us-east-1"
 
 [edge_runtime]
-enabled = true
+enabled = false
 # Configure one of the supported request policies: `oneshot`, `per_worker`.
 # Use `oneshot` for hot reload, or `per_worker` for load testing.
 policy = "oneshot"
@@ -259,7 +259,7 @@ inspector_port = 8083
 # entrypoint = "./functions/MY_FUNCTION_NAME/index.ts"
 
 [analytics]
-enabled = true
+enabled = false
 port = 54327
 # Configure one of the supported backends: `postgres`, `bigquery`.
 backend = "postgres"

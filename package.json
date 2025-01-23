@@ -3,10 +3,16 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "astro": "astro",
     "build": "astro build",
+    "cleanup": "supabase stop --no-backup",
+    "dev": "astro dev",
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate",
     "preview": "astro preview",
-    "astro": "astro"
+    "push": "drizzle-kit push",
+    "start": "supabase start",
+    "stop": "supabase stop --all"
   },
   "dependencies": {
     "@astrojs/solid-js": "^5.0.1",
@@ -20,7 +26,7 @@
   "devDependencies": {
     "@types/node": "^22.10.2",
     "drizzle-kit": "^0.30.1",
-    "supabase": "^2.1.1",
+    "supabase": "^2.6.8",
     "tsx": "^4.19.2"
   }
 }

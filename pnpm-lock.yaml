@@ -37,8 +37,8 @@ importers:
         specifier: ^0.30.1
         version: 0.30.1
       supabase:
-        specifier: ^2.1.1
-        version: 2.1.1
+        specifier: ^2.6.8
+        version: 2.6.8
       tsx:
         specifier: ^4.19.2
         version: 4.19.2
@@ -2421,8 +2421,8 @@ packages:
     resolution: {integrity: sha512-vavAMRXOgBVNF6nyEEmL3DBK19iRpDcoIwW+swQ+CbGiu7lju6t+JklA1MHweoWtadgt4ISVUsXLyDq34ddcwA==}
     engines: {node: '>=4'}
 
-  supabase@2.1.1:
-    resolution: {integrity: sha512-KPP4LrvMmu6IWIcqSOcPbepTGT2Fv05TMiYwbcEaKgCVUznDNtlyXQTImJhjP+8FhNuJ+tF9SLoQgMQqDei+jA==}
+  supabase@2.6.8:
+    resolution: {integrity: sha512-rgz9DVLso6LQ9VLKYXPDkvKgyFCYi6os1+3QS439yKkq4etbYn3KsedFBen0m4lgrHylBNL6W2qOB4+J/kgOLQ==}
     engines: {npm: '>=8'}
     hasBin: true
 
@@ -5187,7 +5187,7 @@ snapshots:
 
   strip-bom@3.0.0: {}
 
-  supabase@2.1.1:
+  supabase@2.6.8:
     dependencies:
       bin-links: 5.0.0
       https-proxy-agent: 7.0.6
