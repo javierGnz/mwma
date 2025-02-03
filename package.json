@@ -5,14 +5,15 @@
   "scripts": {
     "astro": "astro",
     "build": "astro build",
-    "cleanup": "supabase stop --no-backup",
+    "db:cleanup": "supabase stop --no-backup",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:seed": "tsx src/db/seeds/index.ts",
+    "db:start": "supabase start",
+    "db:stop": "supabase stop --all",
     "dev": "astro dev",
-    "generate": "drizzle-kit generate",
-    "migrate": "drizzle-kit migrate",
-    "preview": "astro preview",
-    "push": "drizzle-kit push",
-    "start": "supabase start",
-    "stop": "supabase stop --all"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/solid-js": "^5.0.1",
@@ -20,13 +21,18 @@
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.3",
     "postgres": "^3.4.5",
-    "solid-devtools": "^0.31.6",
     "solid-js": "^1.9.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@faker-js/faker": "^9.4.0",
     "@types/node": "^22.10.2",
     "drizzle-kit": "^0.30.1",
-    "supabase": "^2.6.8",
-    "tsx": "^4.19.2"
+    "eslint": "^9.20.0",
+    "globals": "^15.14.0",
+    "solid-devtools": "^0.33.0",
+    "supabase": "^2.15.8",
+    "tsx": "^4.19.2",
+    "typescript-eslint": "^8.24.0"
   }
 }

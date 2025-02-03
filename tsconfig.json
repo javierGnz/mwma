@@ -1,14 +1,17 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
-    "jsxImportSource": "solid-js"
-  }
+    "jsxImportSource": "solid-js",
+    "outDir": "./dist",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/schema": ["./src/db/schema/*"],
+      "$/*": ["./*"]
+    },
+    "strict": true
+  },
+  "exclude": ["dist", "node_modules"],
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"]
 }
