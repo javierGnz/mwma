@@ -21,7 +21,7 @@ CREATE TABLE "companies" (
 --> statement-breakpoint
 CREATE TABLE "mechanics" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
-	"workshop_id" uuid NOT NULL,
+	"workshop_id" uuid,
 	"user_id" uuid NOT NULL
 );
 --> statement-breakpoint

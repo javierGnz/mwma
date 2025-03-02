@@ -10,6 +10,8 @@ const vehicles: VehicleInsert[] = Array.from({ length: 4 }, () => ({
 }));
 
 export const seedVehicles: SeedFunction = async (db: db) => {
+  console.log("Seeding vehicles...");
+
   const data = await Promise.all(
     vehicles.map(async ({ vin, license_plate, ...rest }, index) => {
       const vehicleSpecificationIds =

@@ -9,6 +9,7 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
+    "db:reset": "supabase db reset --local",
     "db:seed": "tsx src/db/seeds/index.ts",
     "db:start": "supabase start",
     "db:stop": "supabase stop --all",
@@ -16,8 +17,8 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/solid-js": "^5.0.1",
-    "astro": "^5.1.1",
+    "@astrojs/solid-js": "^5.0.5",
+    "astro": "^5.4.1",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.3",
     "postgres": "^3.4.5",

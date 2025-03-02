@@ -4,28 +4,21 @@ import { seedOwners } from "./owners";
 import { seedVehicles } from "./vehicles";
 import { vehicleSpecificationsSeed } from "./vehiclesSpecifications";
 
+const promises = [
+  vehicleSpecificationsSeed,
+  seedVehicles,
+  seedOwners,
+  seedMechanics,
+];
+
 const seedDb = async () => {
   console.log("Seeding database...");
-  console.log("Adding independent data...");
 
-  const res = await Promise.allSettled([
-    vehicleSpecificationsSeed(db),
-    seedVehicles(db),
-    seedOwners(db),
-    seedMechanics(db),
-  ]);
-
-  res.forEach((result) => {
-    if (result.status === "rejected") {
-      console.log("Error seeding database:", result.reason);
-    } else {
-      console.log(result.value);
-    }
-  });
+  for (const promise of promises) {
+    await promise(db).then((result) => console.log(result));
+  }
 
   await connection.end();
-
-  console.log("Seeding complete!");
 };
 
 seedDb()
@@ -35,6 +28,5 @@ seedDb()
   })
   .catch((err) => {
     console.error("Error seeding database:", err);
-
     process.exit(1);
   });

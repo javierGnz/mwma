@@ -1,5 +1,5 @@
 {
-  "id": "0b4659f9-e6f0-4334-ace1-03de2c1cc361",
+  "id": "04c0e492-f944-4e2c-a32b-b12821b86d4d",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -167,7 +167,7 @@
           "name": "workshop_id",
           "type": "uuid",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
         "user_id": {
           "name": "user_id",

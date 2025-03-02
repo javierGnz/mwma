@@ -1,6 +1,6 @@
 import { mechanicsTable, usersTable, type MechanicInsert } from "../schema";
 import type { db, SeedFunction } from "../types";
-import { users } from "./users";
+import { generateUsers } from "./users";
 
 const mechanics: MechanicInsert[] = Array.from({ length: 4 }, () => ({
   user_id: "",
@@ -8,7 +8,12 @@ const mechanics: MechanicInsert[] = Array.from({ length: 4 }, () => ({
 }));
 
 export const seedMechanics: SeedFunction = async (db: db) => {
-  const addendedUsers = await db.insert(usersTable).values(users).returning();
+  console.log("Seeding mechanics...");
+
+  const addendedUsers = await db
+    .insert(usersTable)
+    .values(generateUsers())
+    .returning();
 
   const data = mechanics.map((_, index) => ({
     user_id: addendedUsers[index].id,
@@ -16,5 +21,5 @@ export const seedMechanics: SeedFunction = async (db: db) => {
 
   await db.insert(mechanicsTable).values(data);
 
-  return `${users.length} Mechanics seeded successfully`;
+  return `${data.length} Mechanics seeded successfully`;
 };

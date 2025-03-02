@@ -1,8 +1,8 @@
 ---
-import { db } from "@/db";
 import { vehiclesTable } from "@/db/schema";
 import astroLogo from "../assets/astro.svg";
 import background from "../assets/background.svg";
+import { db } from "@/db";
 
 const vehicles = await db.select().from(vehiclesTable);
 ---

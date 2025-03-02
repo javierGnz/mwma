@@ -17,6 +17,8 @@ const data: VehicleSpecificationInsert[] = Array.from({ length: 4 }, () => ({
 }));
 
 export const vehicleSpecificationsSeed: SeedFunction = async (db: db) => {
+  console.log("Seeding vehicle specifications...");
+
   await db.insert(vehicleSpecificationsTable).values(data);
 
   return `${data.length} Vehicle Specifications seeded successfully`;
