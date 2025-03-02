@@ -1,8 +1,9 @@
 ---
-import { vehiclesTable } from "@/db/schema";
 import astroLogo from "../assets/astro.svg";
 import background from "../assets/background.svg";
 import { db } from "@/db";
+import { vehiclesTable } from "@/db/schema";
+import { Button } from "@/components/ui/button";
 
 const vehicles = await db.select().from(vehiclesTable);
 ---
@@ -19,10 +20,11 @@ const vehicles = await db.select().from(vehiclesTable);
           alt="Astro Homepage"
         /></a
       >
+      <Button>Button</Button>
       {
         vehicles.map((vehicle) => (
-          <div style="display: flex; flex-direction: column; gap: 16px;">
-            <h2>{vehicle.id}</h2>
+          <div class="flex flex-col gap-4">
+            <h2 class="text-3xl font-bold underline">{vehicle.id}</h2>
             <p>{vehicle.vin}</p>
             <p>{vehicle.license_plate}</p>
           </div>
