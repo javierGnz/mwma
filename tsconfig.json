@@ -1,29 +1,23 @@
 {
-  "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "outDir": "./dist",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"],
-      "@/db/*": ["./db/*"],
-      "@/assets/*": ["./src/assets/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/layouts/*": ["./src/layouts/*"],
-      "@/lib/*": ["./src/lib/*"],
-      "@/pages/*": ["./src/pages/*"],
-      "@/styles/*": ["./src/styles/*"],
-    },
-    "strict": true
-  },
-  "exclude": [
-    "dist",
-    "node_modules"
-  ],
-  "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ]
+	"compilerOptions": {
+		"forceConsistentCasingInFileNames": true,
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
+		"outDir": "./dist",
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./*"],
+			"@/db/*": ["./db/*"],
+			"@/assets/*": ["./src/assets/*"],
+			"@/components/*": ["./src/components/*"],
+			"@/layouts/*": ["./src/layouts/*"],
+			"@/lib/*": ["./src/lib/*"],
+			"@/pages/*": ["./src/pages/*"],
+			"@/styles/*": ["./src/styles/*"]
+		},
+		"strict": true
+	},
+	"exclude": ["dist", "node_modules"],
+	"extends": "astro/tsconfigs/strict",
+	"include": [".astro/types.d.ts", "**/*"]
 }

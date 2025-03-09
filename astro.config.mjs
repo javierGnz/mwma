@@ -5,14 +5,9 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    react({
-      include: ["**/react/*"],
-    }),
-    solidJs({
-      include: ["**/solid/*"],
-      devtools: true,
-    }),
-  ],
-  vite: { plugins: [tailwindcss()] },
+	integrations: [
+		react({ include: ["**/react/*"] }),
+		solidJs({ include: ["**/solid/*"], devtools: true }),
+	],
+	vite: { plugins: [tailwindcss()] },
 });

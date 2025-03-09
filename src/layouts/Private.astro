@@ -1,0 +1,16 @@
+---
+import Layout from "./Layout.astro";
+import { Button } from "@/components/ui/button";
+---
+
+<Layout>
+	<div class="flex min-h-screen p-4 pt-2">
+		<aside class="w-54 shrink-0"><Button>Button</Button></aside>
+		<div class="w-full">
+			<nav>nav</nav>
+			<main>
+				<slot />
+			</main>
+		</div>
+	</div>
+</Layout>
