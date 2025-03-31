@@ -1,77 +1,30 @@
 ---
-import astroLogo from "../assets/astro.svg";
-import background from "../assets/background.svg";
 import { db } from "@/db";
 import { vehiclesTable } from "@/db/schema";
-import { Button } from "@/components/ui/button";
 
 const vehicles = await db.select().from(vehiclesTable);
 ---
 
-<div id="container">
-	<img
-		id="background"
-		src={background.src}
-		alt=""
-		fetchpriority="high"
-	/>
-	<main>
-		<section id="hero">
-			<a href="https://astro.build"
-				><img
-					src={astroLogo.src}
-					width="115"
-					height="48"
-					alt="Astro Homepage"
-				/></a
-			>
-			<Button>Button</Button>
-			{
-				vehicles.map((vehicle) => (
-					<div class="flex flex-col gap-4">
-						<h2 class="text-3xl font-bold underline">{vehicle.id}</h2>
-						<p>{vehicle.vin}</p>
-						<p>{vehicle.license_plate}</p>
-					</div>
-				))
-			}
-		</section>
-	</main>
-</div>
+<section id="hero">
+	<h1>Vehicles</h1>
+	{
+		vehicles.map((vehicle) => (
+			<div class="flex gap-4">
+				<h2 class="text-3xl font-bold underline">{vehicle.id}</h2>
+				<p>{vehicle.vin}</p>
+				<p>{vehicle.license_plate}</p>
+			</div>
+		))
+	}
+</section>
 
 <style>
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
-	}
-
-	#container {
-		font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial, sans-serif;
-		height: 100%;
-	}
-
-	main {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
-
 	#hero {
 		display: flex;
 		align-items: start;
 		flex-direction: column;
 		justify-content: center;
 		padding: 16px;
-	}
-
-	h1 {
-		font-size: 22px;
-		margin-top: 0.25em;
 	}
 
 	#links {
