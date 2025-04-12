@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+
+export const prerender = false;
 ---
 
 <!doctype html>
@@ -24,4 +26,7 @@ import "../styles/global.css";
 	<body>
 		<slot />
 	</body>
+	<script>
+		import "preline/dist/preline.js";
+	</script>
 </html>

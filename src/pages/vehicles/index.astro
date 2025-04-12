@@ -1,0 +1,25 @@
+---
+import { db } from "@/db";
+import { vehiclesTable } from "@/db/schema";
+import Private from "@/src/layouts/Private.astro";
+
+const vehicles = await db.select().from(vehiclesTable);
+---
+
+<Private>
+	<h1>Vehicles</h1>
+	{
+		vehicles.map((vehicle) => (
+			<div class="flex gap-4">
+				<a
+					href={`/vehicles/${vehicle.id}`}
+					class="text-3xl font-bold underline"
+				>
+					{vehicle.id}
+				</a>
+				<p>{vehicle.vin}</p>
+				<p>{vehicle.license_plate}</p>
+			</div>
+		))
+	}
+</Private>

@@ -1,0 +1,16 @@
+---
+import { db } from "@/db";
+import { vehiclesTable } from "@/db/schema";
+
+export const getStaticPaths = async () => {
+	const vehicles = await db.select().from(vehiclesTable);
+
+	return vehicles.map((vehicle) => {
+		return { params: { id: vehicle.id }, props: { vehicle } };
+	});
+};
+
+const { vehicle } = Astro.props;
+---
+
+<h1>{vehicle.vin}</h1>
