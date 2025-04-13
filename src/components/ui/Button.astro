@@ -1,0 +1,27 @@
+---
+type Props = { type: "solid" | "outline" | "ghost" | "soft"; onClick: () => void };
+
+const { type, onClick } = Astro.props;
+---
+
+<astro-button>
+	<button
+		type="button"
+		class="inline-flex items-center gap-x-2 rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-hidden disabled:pointer-events-none disabled:opacity-50"
+	>
+		<slot />
+	</button>
+</astro-button>
+
+<script>
+	// Define the behaviour for our new type of HTML element.
+	class AstroButton extends HTMLElement {
+		connectedCallback() {
+			const button = this.querySelector("button");
+			button?.addEventListener("click", () => onClick());
+		}
+	}
+
+	// Tell the browser to use our AstroHeart class for <astro-heart> elements.
+	customElements.define("astro-button", AstroButton);
+</script>

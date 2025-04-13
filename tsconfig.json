@@ -10,6 +10,7 @@
 			"@/db/*": ["./db/*"],
 			"@/assets/*": ["./src/assets/*"],
 			"@/components/*": ["./src/components/*"],
+			"@/ui/*": ["./src/components/ui/*"],
 			"@/features/*": ["./src/features/*"],
 			"@/layouts/*": ["./src/layouts/*"],
 			"@/lib/*": ["./src/lib/*"],

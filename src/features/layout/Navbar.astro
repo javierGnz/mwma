@@ -1,35 +1,37 @@
+---
+import Button from "@/src/components/ui/Button.astro";
+---
+
 <header
-	class="flex w-full flex-wrap border-b border-gray-200 bg-white py-4 text-sm sm:flex-nowrap sm:justify-start dark:border-neutral-700 dark:bg-neutral-800"
+	class="flex w-full border-b border-gray-200 bg-white py-4 dark:border-neutral-700 dark:bg-neutral-800"
 >
-	<nav class="mx-auto w-full max-w-[85rem] px-4 sm:flex sm:items-center sm:justify-end">
+	<nav class="mx-auto flex w-full items-center justify-between px-4 lg:justify-end">
 		<div
-			class="mt-5 flex flex-row items-center gap-5 overflow-x-auto pb-2 sm:mt-0 sm:justify-end sm:overflow-x-visible sm:ps-5 sm:pb-0 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-track]:bg-gray-100 dark:[&::-webkit-scrollbar-track]:bg-neutral-700"
+			class="flex-none text-xl font-semibold text-black lg:hidden dark:text-white"
+			aria-label="Brand"
 		>
-			<a
-				class="font-medium text-blue-500 focus:outline-hidden"
-				href="#"
-				aria-current="page"
-				>Landing</a
-			>
-			<a
-				class="font-medium text-gray-600 hover:text-gray-400 focus:text-gray-400 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-				href="#"
-				>Link</a
-			>
+			MWMA
 		</div>
-		<!-- Navigation Toggle -->
-		<div class="text-center lg:hidden">
-			<button
-				type="button"
-				class="inline-flex items-center justify-center gap-x-2 rounded-lg border border-gray-800 bg-gray-800 px-3 py-2 text-start align-middle text-sm font-medium text-white shadow-2xs hover:bg-gray-950 focus:bg-gray-900 focus:outline-hidden dark:bg-white dark:text-neutral-800 dark:hover:bg-neutral-200 dark:focus:bg-neutral-200"
-				aria-haspopup="dialog"
-				aria-expanded="false"
-				aria-controls="hs-sidebar-basic-usage"
-				aria-label="Toggle navigation"
-				data-hs-overlay="#hs-sidebar-basic-usage"
+		<div class="flex items-center gap-x-4">
+			<div
+				class="mt-5 flex flex-row items-center gap-5 overflow-x-auto pb-2 sm:mt-0 sm:justify-end sm:overflow-x-visible sm:ps-5 sm:pb-0 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-track]:bg-gray-100 dark:[&::-webkit-scrollbar-track]:bg-neutral-700"
 			>
-				Open
-			</button>
+				<a
+					class="font-medium text-blue-500 focus:outline-hidden"
+					href="#"
+					aria-current="page"
+					>Landing</a
+				>
+				<a
+					class="font-medium text-gray-600 hover:text-gray-400 focus:text-gray-400 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+					href="#"
+					>Link</a
+				>
+			</div>
+			<!-- Navigation Toggle -->
+			<div class="lg:hidden">
+				<Button onClick={() => console.log("clicked")}>Open</Button>
+			</div>
 		</div>
 	</nav>
 </header>
