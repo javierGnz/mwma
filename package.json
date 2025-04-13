@@ -13,6 +13,7 @@
 		"db:seed": "tsx db/seeds/index.ts",
 		"db:start": "supabase start",
 		"db:stop": "supabase stop --all",
+		"db:studio": "drizzle-kit studio",
 		"dev": "astro dev",
 		"preview": "astro preview"
 	},
