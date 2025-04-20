@@ -5,9 +5,8 @@ import * as schema from "../database/schema";
 
 config({ path: ".env" });
 
-const connection = postgres(process.env.DATABASE_URL ?? "", {
+export const connection = postgres(process.env.DATABASE_URL ?? "", {
   prepare: false,
 });
 
-export const useDrizzle = () =>
-  drizzle({ client: connection, casing: "snake_case", schema });
+export const db = drizzle({ client: connection, casing: "snake_case", schema });

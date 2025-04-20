@@ -8,3 +8,18 @@ export const routes = [
     path: "/about",
   },
 ];
+
+export const profileRoutes = [
+  {
+    name: "profile",
+    path: "/profile",
+  },
+  {
+    name: "settings",
+    path: "/settings",
+  },
+  {
+    name: "logout",
+    path: "/logout",
+  },
+];
