@@ -5,7 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="text-xl font-semibold text-black">
+  <div class="text-primary-700 text-xl font-semibold">
     {{ props.name }}
   </div>
 </template>

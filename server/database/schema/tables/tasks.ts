@@ -17,9 +17,9 @@ export const tasksTable = pgTable("tasks", {
   mechanic_id: uuid("mechanic_id")
     .notNull()
     .references(() => mechanicsTable.id, { onDelete: "cascade" }),
-  work_id: uuid("work_id")
-    .notNull()
-    .references(() => worksTable.id, { onDelete: "cascade" }),
+  work_id: uuid("work_id").references(() => worksTable.id, {
+    onDelete: "cascade",
+  }),
   ...CREATED_AND_UPDATED,
 });
 

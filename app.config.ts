@@ -1,9 +1,13 @@
 export default defineAppConfig({
   title: "Hello Nuxt",
-  theme: {
-    dark: true,
+  ui: {
     colors: {
-      primary: "#ff0000",
+      primary: "primary",
+      secondary: "secondary",
+      error: "red",
+      success: "green",
+      warning: "orange",
+      info: "blue",
     },
   },
 });

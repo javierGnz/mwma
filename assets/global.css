@@ -1,2 +1,117 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@theme {
+  --color-red-50: #fdf4f3;
+  --color-red-100: #fce6e4;
+  --color-red-200: #fbd0cd;
+  --color-red-300: #f6b0ab;
+  --color-red-400: #ef827a;
+  --color-red-500: #e3564b;
+  --color-red-600: #d03d32;
+  --color-red-700: #af3026;
+  --color-red-800: #912b23;
+  --color-red-900: #792923;
+  --color-red-950: #41120e;
+  --color-orange-50: #fcf7f0;
+  --color-orange-100: #f9ebdb;
+  --color-orange-200: #f2d4b6;
+  --color-orange-300: #eab687;
+  --color-orange-400: #e09057;
+  --color-orange-500: #d97134;
+  --color-orange-600: #cb5c2b;
+  --color-orange-700: #a94725;
+  --color-orange-800: #873925;
+  --color-orange-900: #6d3121;
+  --color-orange-950: #3b170f;
+  --color-amber-*: initial;
+  --color-yellow-*: initial;
+  --color-lime-*: initial;
+  --color-green-50: #f3fbf2;
+  --color-green-100: #e5f6e2;
+  --color-green-200: #ccecc6;
+  --color-green-300: #a1dd98;
+  --color-green-400: #70c464;
+  --color-green-500: #4ca83f;
+  --color-green-600: #3d9131;
+  --color-green-700: #306d28;
+  --color-green-800: #2a5724;
+  --color-green-900: #23481f;
+  --color-green-950: #0e270c;
+  --color-emerald-*: initial;
+  --color-teal-*: initial;
+  --color-cyan-*: initial;
+  --color-sky-*: initial;
+  --color-blue-50: #f2f6fc;
+  --color-blue-100: #e1eaf8;
+  --color-blue-200: #cbdbf2;
+  --color-blue-300: #a7c4e9;
+  --color-blue-400: #7da5dd;
+  --color-blue-500: #5e87d3;
+  --color-blue-600: #4a6ec6;
+  --color-blue-700: #3c56ab;
+  --color-blue-800: #394b94;
+  --color-blue-900: #324276;
+  --color-blue-950: #222a49;
+  --color-indigo-*: initial;
+  --color-violet-*: initial;
+  --color-purple-50: #faf6fd;
+  --color-purple-100: #f4ecfb;
+  --color-purple-200: #e9d8f6;
+  --color-purple-300: #dab8ef;
+  --color-purple-400: #c48ee4;
+  --color-purple-500: #aa62d3;
+  --color-purple-600: #8e42b7;
+  --color-purple-700: #763497;
+  --color-purple-800: #632c7c;
+  --color-purple-900: #4a245a;
+  --color-purple-950: #331042;
+  --color-fuchsia-*: initial;
+  --color-pink-*: initial;
+  --color-rose-*: initial;
+  --color-gray-*: initial;
+  --color-zinc-*: initial;
+  --color-neutral-50: #f7f8f8;
+  --color-neutral-100: #e4e7e9;
+  --color-neutral-200: #d8dddf;
+  --color-neutral-300: #b6bfc3;
+  --color-neutral-400: #8e9ca2;
+  --color-neutral-500: #708087;
+  --color-neutral-600: #5a686f;
+  --color-neutral-700: #49555b;
+  --color-neutral-800: #3f484d;
+  --color-neutral-900: #383e42;
+  --color-neutral-950: #25292c;
+  --color-stone-*: initial;
+
+  --color-primary-50: #f2fbf8;
+  --color-primary-100: #d5f2e9;
+  --color-primary-200: #abe4d3;
+  --color-primary-300: #78d0b9;
+  --color-primary-400: #4db49c;
+  --color-primary-500: #339983;
+  --color-primary-600: #277a6a;
+  --color-primary-700: #226357;
+  --color-primary-800: #1f4e46;
+  --color-primary-900: #1e433c;
+  --color-primary-950: #0c2723;
+
+  --color-secondary-50: #fcfbea;
+  --color-secondary-100: #f9f5c8;
+  --color-secondary-200: #f5e893;
+  --color-secondary-300: #efd655;
+  --color-secondary-400: #eac435;
+  --color-secondary-500: #d9a819;
+  --color-secondary-600: #bb8313;
+  --color-secondary-700: #955f13;
+  --color-secondary-800: #7c4b17;
+  --color-secondary-900: #6a3e19;
+  --color-secondary-950: #3d210b;
+}

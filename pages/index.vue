@@ -20,8 +20,6 @@ const items = ref<AccordionItem[]>([
       "You can customize components by using the `class` / `ui` props or in your app.config.ts.",
   },
 ]);
-
-const { data } = await useFetch("/api/vehicles");
 </script>
 
 <template>
@@ -29,6 +27,4 @@ const { data } = await useFetch("/api/vehicles");
     <h1 class="text-3xl font-bold underline">Hello world!</h1>
     <UAccordion :items="items" />
   </div>
-
-  {{ data.map((vehicle) => vehicle.license_plate) }}
 </template>

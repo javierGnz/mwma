@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint", "@nuxt/scripts", "@nuxt/ui"],
+  modules: ["@nuxt/eslint", "@nuxt/scripts", "@nuxt/ui", "@nuxtjs/i18n"],
   components: [
     {
       path: "~/components",
@@ -19,5 +19,20 @@ export default defineNuxtConfig({
     experimental: {
       tasks: true,
     },
+  },
+  i18n: {
+    defaultLocale: "es",
+    locales: [
+      {
+        code: "es",
+        name: "Español",
+        file: "es.json",
+      },
+      {
+        code: "en",
+        name: "English",
+        file: "en.json",
+      },
+    ],
   },
 });
