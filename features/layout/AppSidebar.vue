@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { DropdownMenuItem, NavigationMenuItem } from "@nuxt/ui";
-import { routes, profileRoutes } from "~/utils/routes";
+import type { NavigationMenuItem } from "@nuxt/ui";
+import { routes } from "~/utils/routes";
+import AppUserMenu from "./AppUserMenu.vue";
 
 const { t } = useI18n();
 
@@ -11,20 +12,11 @@ const sidebarItems: NavigationMenuItem[] = routes.map(
     to: path,
   })
 );
-
-const profileItems: DropdownMenuItem[] = profileRoutes.map(
-  ({ name, path, icon }) => ({
-    icon: icon,
-    label: t(name),
-    to: path,
-    ...(name === "logout" && { color: "error" }),
-  })
-);
 </script>
 
 <template>
   <div
-    class="hidden h-full rounded-s-xs bg-white lg:block"
+    class="hidden h-full rounded-s-xs bg-neutral-50 lg:block"
     aria-label="Sidebar"
   >
     <div class="relative flex h-full max-h-full flex-col">
@@ -39,26 +31,7 @@ const profileItems: DropdownMenuItem[] = profileRoutes.map(
         </div>
       </nav>
       <footer class="mt-auto p-2">
-        <UDropdownMenu block :items="profileItems">
-          <UButton color="neutral" variant="ghost" block>
-            <div
-              type="button"
-              class="inline-flex w-full shrink-0 items-center gap-x-3 rounded-md"
-            >
-              <img
-                class="size-8 shrink-0 rounded-full"
-                src="https://images.unsplash.com/photo-1734122415415-88cb1d7d5dc0?q=80&w=320&h=320&auto=format&fit=facearea&facepad=3&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Avatar"
-              />
-              <div class="flex flex-col items-start font-semibold">
-                Mia Hudson
-                <small class="text-xs font-light text-neutral-400"
-                  >Senior Developer</small
-                >
-              </div>
-            </div>
-          </UButton>
-        </UDropdownMenu>
+        <AppUserMenu />
       </footer>
     </div>
   </div>

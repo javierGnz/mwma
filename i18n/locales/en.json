@@ -1,5 +1,6 @@
 {
   "home": "Home",
+  "vehicle": "Vehicle",
   "vehicles": "Vehicles",
   "about": "About",
   "profile": "Profile",
@@ -7,5 +8,9 @@
   "logout": "Logout",
   "works": "Works",
   "mechanics": "Mechanics",
-  "clients": "Clients"
+  "clients": "Clients",
+  "add_vehicle": "Add @.lower:vehicle",
+  "login": "Login",
+  "email": "Email",
+  "password": "Password"
 }

@@ -1,5 +1,6 @@
 {
   "home": "Inicio",
+  "vehicle": "Vehículo",
   "vehicles": "Vehiculos",
   "about": "Acerca de",
   "profile": "Perfil",
@@ -7,5 +8,9 @@
   "logout": "Cerrar sesión",
   "works": "Trabajos",
   "mechanics": "Mecánicos",
-  "clients": "Clientes"
+  "clients": "Clientes",
+  "add_vehicle": "Agregar @.lower:vehicle",
+  "login": "Iniciar sesión",
+  "email": "Correo electrónico",
+  "password": "Contraseña"
 }

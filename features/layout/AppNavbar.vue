@@ -1,6 +1,6 @@
 <template>
-  <header class="flex border-b border-neutral-100 py-4">
-    <nav class="flex w-full items-center justify-between px-4 lg:justify-end">
+  <header class="flex border-b border-neutral-100 py-2">
+    <nav class="flex w-full items-center justify-between lg:justify-end">
       <div class="flex-none lg:hidden">
         <CompanyBrand name="Workshop" />
       </div>
