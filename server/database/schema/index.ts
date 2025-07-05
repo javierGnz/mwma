@@ -1,50 +1,50 @@
 export {
-  commentsTable,
-  commentRelations,
-  type CommentInsert,
-  type CommentSelect,
+	type CommentInsert,
+	type CommentSelect,
+	commentRelations,
+	commentsTable,
 } from "./tables/comments";
 export {
-  companiesTable,
-  companyRelations,
-  type CompanyInsert,
-  type CompanySelect,
+	type CompanyInsert,
+	type CompanySelect,
+	companiesTable,
+	companyRelations,
 } from "./tables/companies";
 export {
-  mechanicsTable,
-  mechanicRelations,
-  type MechanicInsert,
-  type MechanicSelect,
+	type MechanicInsert,
+	type MechanicSelect,
+	mechanicRelations,
+	mechanicsTable,
 } from "./tables/mechanics";
 export {
-  ownersTable,
-  ownerRelations,
-  type OwnerInsert,
-  type OwnerSelect,
+	type OwnerInsert,
+	type OwnerSelect,
+	ownerRelations,
+	ownersTable,
 } from "./tables/owners";
-export { tasksTable, type TaskInsert, type TaskSelect } from "./tables/tasks";
-export { usersTable, type UserInsert, type UserSelect } from "./tables/users";
+export { type TaskInsert, type TaskSelect, tasksTable } from "./tables/tasks";
+export { type UserInsert, type UserSelect, usersTable } from "./tables/users";
 export {
-  vehiclesTable,
-  vehicleRelations,
-  type VehicleInsert,
-  type VehicleSelect,
-} from "./tables/vehicles";
-export {
-  vehicleSpecificationsTable,
-  vehicleSpecificationsRelations,
-  type VehicleSpecificationInsert,
-  type VehicleSpecificationSelect,
+	type VehicleSpecificationInsert,
+	type VehicleSpecificationSelect,
+	vehicleSpecificationsRelations,
+	vehicleSpecificationsTable,
 } from "./tables/vehicleSpecifications";
 export {
-  worksTable,
-  workRelations,
-  type WorkInsert,
-  type WorkSelect,
+	type VehicleInsert,
+	type VehicleSelect,
+	vehicleRelations,
+	vehiclesTable,
+} from "./tables/vehicles";
+export {
+	type WorkInsert,
+	type WorkSelect,
+	workRelations,
+	worksTable,
 } from "./tables/works";
 export {
-  workshopsTable,
-  workshopRelations,
-  type WorkshopInsert,
-  type WorkshopSelect,
+	type WorkshopInsert,
+	type WorkshopSelect,
+	workshopRelations,
+	workshopsTable,
 } from "./tables/workshops";

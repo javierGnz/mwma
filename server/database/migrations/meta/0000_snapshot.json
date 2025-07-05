@@ -1,858 +1,795 @@
 {
-  "id": "dadd8fd4-d6c3-4083-865e-c4b0aedda2b0",
-  "prevId": "00000000-0000-0000-0000-000000000000",
-  "version": "7",
-  "dialect": "postgresql",
-  "tables": {
-    "public.comments": {
-      "name": "comments",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "uuid",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
-        "description": {
-          "name": "description",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "work_id": {
-          "name": "work_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "task_id": {
-          "name": "task_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "mechanic_id": {
-          "name": "mechanic_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "updated_by": {
-          "name": "updated_by",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "comments_work_id_works_id_fk": {
-          "name": "comments_work_id_works_id_fk",
-          "tableFrom": "comments",
-          "tableTo": "works",
-          "columnsFrom": [
-            "work_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "comments_task_id_tasks_id_fk": {
-          "name": "comments_task_id_tasks_id_fk",
-          "tableFrom": "comments",
-          "tableTo": "tasks",
-          "columnsFrom": [
-            "task_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "comments_mechanic_id_mechanics_id_fk": {
-          "name": "comments_mechanic_id_mechanics_id_fk",
-          "tableFrom": "comments",
-          "tableTo": "mechanics",
-          "columnsFrom": [
-            "mechanic_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.companies": {
-      "name": "companies",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "uuid",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
-        "name": {
-          "name": "name",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "updated_by": {
-          "name": "updated_by",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.mechanics": {
-      "name": "mechanics",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "uuid",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
-        "workshop_id": {
-          "name": "workshop_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "user_id": {
-          "name": "user_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "mechanics_workshop_id_workshops_id_fk": {
-          "name": "mechanics_workshop_id_workshops_id_fk",
-          "tableFrom": "mechanics",
-          "tableTo": "workshops",
-          "columnsFrom": [
-            "workshop_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "mechanics_user_id_users_id_fk": {
-          "name": "mechanics_user_id_users_id_fk",
-          "tableFrom": "mechanics",
-          "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.owners": {
-      "name": "owners",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "uuid",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
-        "user_id": {
-          "name": "user_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "owners_user_id_users_id_fk": {
-          "name": "owners_user_id_users_id_fk",
-          "tableFrom": "owners",
-          "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.tasks": {
-      "name": "tasks",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "uuid",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
-        "name": {
-          "name": "name",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "description": {
-          "name": "description",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "priority": {
-          "name": "priority",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "parts": {
-          "name": "parts",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "mechanic_id": {
-          "name": "mechanic_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "work_id": {
-          "name": "work_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "updated_by": {
-          "name": "updated_by",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "tasks_mechanic_id_mechanics_id_fk": {
-          "name": "tasks_mechanic_id_mechanics_id_fk",
-          "tableFrom": "tasks",
-          "tableTo": "mechanics",
-          "columnsFrom": [
-            "mechanic_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "tasks_work_id_works_id_fk": {
-          "name": "tasks_work_id_works_id_fk",
-          "tableFrom": "tasks",
-          "tableTo": "works",
-          "columnsFrom": [
-            "work_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.users": {
-      "name": "users",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "uuid",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
-        "name": {
-          "name": "name",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "last_name": {
-          "name": "last_name",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "dni": {
-          "name": "dni",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "email": {
-          "name": "email",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "phone": {
-          "name": "phone",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "gender": {
-          "name": "gender",
-          "type": "gender",
-          "typeSchema": "public",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "date_of_birth": {
-          "name": "date_of_birth",
-          "type": "date",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "updated_by": {
-          "name": "updated_by",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {
-        "users_dni_unique": {
-          "name": "users_dni_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "dni"
-          ]
-        }
-      },
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.vehicles_specifications": {
-      "name": "vehicles_specifications",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "uuid",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
-        "type": {
-          "name": "type",
-          "type": "vehicle_type",
-          "typeSchema": "public",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "'CAR'"
-        },
-        "brand": {
-          "name": "brand",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "model": {
-          "name": "model",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "color": {
-          "name": "color",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "year": {
-          "name": "year",
-          "type": "smallint",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "version": {
-          "name": "version",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "kilometres": {
-          "name": "kilometres",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "updated_by": {
-          "name": "updated_by",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.vehicles": {
-      "name": "vehicles",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "uuid",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
-        "vin": {
-          "name": "vin",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "license_plate": {
-          "name": "license_plate",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "vehicle_specification_id": {
-          "name": "vehicle_specification_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "owner_id": {
-          "name": "owner_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "updated_by": {
-          "name": "updated_by",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "vehicles_vehicle_specification_id_vehicles_specifications_id_fk": {
-          "name": "vehicles_vehicle_specification_id_vehicles_specifications_id_fk",
-          "tableFrom": "vehicles",
-          "tableTo": "vehicles_specifications",
-          "columnsFrom": [
-            "vehicle_specification_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "vehicles_owner_id_owners_id_fk": {
-          "name": "vehicles_owner_id_owners_id_fk",
-          "tableFrom": "vehicles",
-          "tableTo": "owners",
-          "columnsFrom": [
-            "owner_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {
-        "vehicles_vin_unique": {
-          "name": "vehicles_vin_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "vin"
-          ]
-        },
-        "vehicles_license_plate_unique": {
-          "name": "vehicles_license_plate_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "license_plate"
-          ]
-        }
-      },
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.works": {
-      "name": "works",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "uuid",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
-        "name": {
-          "name": "name",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "description": {
-          "name": "description",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "status": {
-          "name": "status",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "tags": {
-          "name": "tags",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "price": {
-          "name": "price",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "completed_at": {
-          "name": "completed_at",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "expires_at": {
-          "name": "expires_at",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "mechanic_id": {
-          "name": "mechanic_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "vehicle_id": {
-          "name": "vehicle_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "updated_by": {
-          "name": "updated_by",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "works_mechanic_id_mechanics_id_fk": {
-          "name": "works_mechanic_id_mechanics_id_fk",
-          "tableFrom": "works",
-          "tableTo": "mechanics",
-          "columnsFrom": [
-            "mechanic_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "works_vehicle_id_vehicles_id_fk": {
-          "name": "works_vehicle_id_vehicles_id_fk",
-          "tableFrom": "works",
-          "tableTo": "vehicles",
-          "columnsFrom": [
-            "vehicle_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.workshops": {
-      "name": "workshops",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "uuid",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
-        "name": {
-          "name": "name",
-          "type": "varchar(256)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "company_id": {
-          "name": "company_id",
-          "type": "uuid",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "updated_by": {
-          "name": "updated_by",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "workshops_company_id_companies_id_fk": {
-          "name": "workshops_company_id_companies_id_fk",
-          "tableFrom": "workshops",
-          "tableTo": "companies",
-          "columnsFrom": [
-            "company_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    }
-  },
-  "enums": {
-    "public.gender": {
-      "name": "gender",
-      "schema": "public",
-      "values": [
-        "MALE",
-        "FEMALE",
-        "NONBINARY",
-        "UNSPECIFIED"
-      ]
-    },
-    "public.vehicle_type": {
-      "name": "vehicle_type",
-      "schema": "public",
-      "values": [
-        "CAR",
-        "PICKUP",
-        "VAN",
-        "TRACTOR",
-        "TRUCK",
-        "BUS",
-        "MOTORCYCLE",
-        "BICYCLE",
-        "SCOOTER",
-        "OTHER"
-      ]
-    }
-  },
-  "schemas": {},
-  "sequences": {},
-  "roles": {},
-  "policies": {},
-  "views": {},
-  "_meta": {
-    "columns": {},
-    "schemas": {},
-    "tables": {}
-  }
+	"id": "dadd8fd4-d6c3-4083-865e-c4b0aedda2b0",
+	"prevId": "00000000-0000-0000-0000-000000000000",
+	"version": "7",
+	"dialect": "postgresql",
+	"tables": {
+		"public.comments": {
+			"name": "comments",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"description": {
+					"name": "description",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"work_id": {
+					"name": "work_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"task_id": {
+					"name": "task_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"mechanic_id": {
+					"name": "mechanic_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"updated_at": {
+					"name": "updated_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"updated_by": {
+					"name": "updated_by",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {
+				"comments_work_id_works_id_fk": {
+					"name": "comments_work_id_works_id_fk",
+					"tableFrom": "comments",
+					"tableTo": "works",
+					"columnsFrom": ["work_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				},
+				"comments_task_id_tasks_id_fk": {
+					"name": "comments_task_id_tasks_id_fk",
+					"tableFrom": "comments",
+					"tableTo": "tasks",
+					"columnsFrom": ["task_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				},
+				"comments_mechanic_id_mechanics_id_fk": {
+					"name": "comments_mechanic_id_mechanics_id_fk",
+					"tableFrom": "comments",
+					"tableTo": "mechanics",
+					"columnsFrom": ["mechanic_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"public.companies": {
+			"name": "companies",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"name": {
+					"name": "name",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"updated_at": {
+					"name": "updated_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"updated_by": {
+					"name": "updated_by",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"public.mechanics": {
+			"name": "mechanics",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"workshop_id": {
+					"name": "workshop_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"user_id": {
+					"name": "user_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {
+				"mechanics_workshop_id_workshops_id_fk": {
+					"name": "mechanics_workshop_id_workshops_id_fk",
+					"tableFrom": "mechanics",
+					"tableTo": "workshops",
+					"columnsFrom": ["workshop_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				},
+				"mechanics_user_id_users_id_fk": {
+					"name": "mechanics_user_id_users_id_fk",
+					"tableFrom": "mechanics",
+					"tableTo": "users",
+					"columnsFrom": ["user_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"public.owners": {
+			"name": "owners",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"user_id": {
+					"name": "user_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {
+				"owners_user_id_users_id_fk": {
+					"name": "owners_user_id_users_id_fk",
+					"tableFrom": "owners",
+					"tableTo": "users",
+					"columnsFrom": ["user_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"public.tasks": {
+			"name": "tasks",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"name": {
+					"name": "name",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"description": {
+					"name": "description",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"priority": {
+					"name": "priority",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"parts": {
+					"name": "parts",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"mechanic_id": {
+					"name": "mechanic_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"work_id": {
+					"name": "work_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"updated_at": {
+					"name": "updated_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"updated_by": {
+					"name": "updated_by",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {
+				"tasks_mechanic_id_mechanics_id_fk": {
+					"name": "tasks_mechanic_id_mechanics_id_fk",
+					"tableFrom": "tasks",
+					"tableTo": "mechanics",
+					"columnsFrom": ["mechanic_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				},
+				"tasks_work_id_works_id_fk": {
+					"name": "tasks_work_id_works_id_fk",
+					"tableFrom": "tasks",
+					"tableTo": "works",
+					"columnsFrom": ["work_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"public.users": {
+			"name": "users",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"name": {
+					"name": "name",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"last_name": {
+					"name": "last_name",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"dni": {
+					"name": "dni",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"email": {
+					"name": "email",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"phone": {
+					"name": "phone",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"gender": {
+					"name": "gender",
+					"type": "gender",
+					"typeSchema": "public",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"date_of_birth": {
+					"name": "date_of_birth",
+					"type": "date",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"updated_at": {
+					"name": "updated_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"updated_by": {
+					"name": "updated_by",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {
+				"users_dni_unique": {
+					"name": "users_dni_unique",
+					"nullsNotDistinct": false,
+					"columns": ["dni"]
+				}
+			},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"public.vehicles_specifications": {
+			"name": "vehicles_specifications",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"type": {
+					"name": "type",
+					"type": "vehicle_type",
+					"typeSchema": "public",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "'CAR'"
+				},
+				"brand": {
+					"name": "brand",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"model": {
+					"name": "model",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"color": {
+					"name": "color",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"year": {
+					"name": "year",
+					"type": "smallint",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"version": {
+					"name": "version",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"kilometres": {
+					"name": "kilometres",
+					"type": "numeric",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"updated_at": {
+					"name": "updated_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"updated_by": {
+					"name": "updated_by",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"public.vehicles": {
+			"name": "vehicles",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"vin": {
+					"name": "vin",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"license_plate": {
+					"name": "license_plate",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"vehicle_specification_id": {
+					"name": "vehicle_specification_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"owner_id": {
+					"name": "owner_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"updated_at": {
+					"name": "updated_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"updated_by": {
+					"name": "updated_by",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {
+				"vehicles_vehicle_specification_id_vehicles_specifications_id_fk": {
+					"name": "vehicles_vehicle_specification_id_vehicles_specifications_id_fk",
+					"tableFrom": "vehicles",
+					"tableTo": "vehicles_specifications",
+					"columnsFrom": ["vehicle_specification_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				},
+				"vehicles_owner_id_owners_id_fk": {
+					"name": "vehicles_owner_id_owners_id_fk",
+					"tableFrom": "vehicles",
+					"tableTo": "owners",
+					"columnsFrom": ["owner_id"],
+					"columnsTo": ["id"],
+					"onDelete": "no action",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {
+				"vehicles_vin_unique": {
+					"name": "vehicles_vin_unique",
+					"nullsNotDistinct": false,
+					"columns": ["vin"]
+				},
+				"vehicles_license_plate_unique": {
+					"name": "vehicles_license_plate_unique",
+					"nullsNotDistinct": false,
+					"columns": ["license_plate"]
+				}
+			},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"public.works": {
+			"name": "works",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"name": {
+					"name": "name",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"description": {
+					"name": "description",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"status": {
+					"name": "status",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"tags": {
+					"name": "tags",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"price": {
+					"name": "price",
+					"type": "numeric",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"completed_at": {
+					"name": "completed_at",
+					"type": "timestamp",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"expires_at": {
+					"name": "expires_at",
+					"type": "timestamp",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"mechanic_id": {
+					"name": "mechanic_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"vehicle_id": {
+					"name": "vehicle_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"updated_at": {
+					"name": "updated_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"updated_by": {
+					"name": "updated_by",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {
+				"works_mechanic_id_mechanics_id_fk": {
+					"name": "works_mechanic_id_mechanics_id_fk",
+					"tableFrom": "works",
+					"tableTo": "mechanics",
+					"columnsFrom": ["mechanic_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				},
+				"works_vehicle_id_vehicles_id_fk": {
+					"name": "works_vehicle_id_vehicles_id_fk",
+					"tableFrom": "works",
+					"tableTo": "vehicles",
+					"columnsFrom": ["vehicle_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"public.workshops": {
+			"name": "workshops",
+			"schema": "",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"name": {
+					"name": "name",
+					"type": "varchar(256)",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"company_id": {
+					"name": "company_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"updated_at": {
+					"name": "updated_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"updated_by": {
+					"name": "updated_by",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {},
+			"foreignKeys": {
+				"workshops_company_id_companies_id_fk": {
+					"name": "workshops_company_id_companies_id_fk",
+					"tableFrom": "workshops",
+					"tableTo": "companies",
+					"columnsFrom": ["company_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		}
+	},
+	"enums": {
+		"public.gender": {
+			"name": "gender",
+			"schema": "public",
+			"values": ["MALE", "FEMALE", "NONBINARY", "UNSPECIFIED"]
+		},
+		"public.vehicle_type": {
+			"name": "vehicle_type",
+			"schema": "public",
+			"values": [
+				"CAR",
+				"PICKUP",
+				"VAN",
+				"TRACTOR",
+				"TRUCK",
+				"BUS",
+				"MOTORCYCLE",
+				"BICYCLE",
+				"SCOOTER",
+				"OTHER"
+			]
+		}
+	},
+	"schemas": {},
+	"sequences": {},
+	"roles": {},
+	"policies": {},
+	"views": {},
+	"_meta": {
+		"columns": {},
+		"schemas": {},
+		"tables": {}
+	}
 }

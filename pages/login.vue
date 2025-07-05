@@ -5,25 +5,25 @@ import type { FormSubmitEvent } from "@nuxt/ui";
 definePageMeta({ layout: "sign" });
 
 const schema = z.object({
-  email: z.string().email("Invalid email"),
-  password: z.string().min(8, "Must be at least 8 characters"),
+	email: z.string().email("Invalid email"),
+	password: z.string().min(8, "Must be at least 8 characters"),
 });
 
 type Schema = z.output<typeof schema>;
 
 const state = reactive<Partial<Schema>>({
-  email: undefined,
-  password: undefined,
+	email: undefined,
+	password: undefined,
 });
 
 const toast = useToast();
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  toast.add({
-    title: "Success",
-    description: "The form has been submitted.",
-    color: "success",
-  });
-  console.log(event.data);
+	toast.add({
+		title: "Success",
+		description: "The form has been submitted.",
+		color: "success",
+	});
+	console.log(event.data);
 }
 </script>
 

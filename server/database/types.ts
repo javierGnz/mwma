@@ -1,5 +1,5 @@
 import type { db } from "../utils/db";
 
-export type db = typeof db;
+export type DbType = typeof db;
 
-export type SeedFunction = (db: db) => Promise<string>;
+export type SeedFunction = (db: DbType) => Promise<string>;

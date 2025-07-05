@@ -5,12 +5,12 @@ import { profileRoutes } from "~/utils/routes";
 const { t } = useI18n();
 
 const profileItems: DropdownMenuItem[] = profileRoutes.map(
-  ({ name, path, icon }) => ({
-    icon: icon,
-    label: t(name),
-    to: path,
-    ...(name === "logout" && { color: "error" }),
-  })
+	({ name, path, icon }) => ({
+		icon: icon,
+		label: t(name),
+		to: path,
+		...(name === "logout" && { color: "error" }),
+	})
 );
 </script>
 

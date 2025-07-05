@@ -6,11 +6,11 @@ import AppUserMenu from "./AppUserMenu.vue";
 const { t } = useI18n();
 
 const sidebarItems: NavigationMenuItem[] = routes.map(
-  ({ name, path, icon }) => ({
-    icon,
-    label: t(name),
-    to: path,
-  })
+	({ name, path, icon }) => ({
+		icon,
+		label: t(name),
+		to: path,
+	})
 );
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const {
-  status,
-  data: { value: vehicles },
+	status,
+	data: { value: vehicles },
 } = await useFetch("/api/vehicles");
 
 const items = ref(["Backlog", "Todo", "In Progress", "Done"]);

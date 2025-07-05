@@ -1,0 +1,89 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		},
+		"enabled": true
+	},
+	"files": {
+		"ignoreUnknown": true,
+		"includes": [
+			"**/*.js",
+			"**/*.ts",
+			"**/*.jsx",
+			"**/*.tsx",
+			"**/*.vue",
+			"**/*.json"
+		]
+	},
+	"formatter": {
+		"attributePosition": "multiline",
+		"bracketSpacing": true,
+		"enabled": true,
+		"expand": "auto",
+		"formatWithErrors": true,
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"lineWidth": 80,
+		"useEditorconfig": true
+	},
+	"javascript": {
+		"formatter": {
+			"arrowParentheses": "asNeeded",
+			"attributePosition": "multiline",
+			"bracketSameLine": false,
+			"bracketSpacing": true,
+			"enabled": true,
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded",
+			"quoteStyle": "double",
+			"semicolons": "always",
+			"trailingCommas": "es5"
+		}
+	},
+	"json": {
+		"formatter": {
+			"enabled": true
+		},
+		"parser": {
+			"allowComments": true,
+			"allowTrailingCommas": true
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"a11y": "info",
+			"complexity": "error",
+			"correctness": {
+				"noUnusedImports": "off"
+			},
+			"performance": "warn",
+			"security": "info",
+			"style": "info",
+			"suspicious": "error"
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.vue"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noUnusedImports": "off",
+						"noUnusedVariables": "off"
+					},
+					"style": {
+						"useConst": "off",
+						"useImportType": "off"
+					}
+				}
+			}
+		}
+	],
+	"vcs": { "clientKind": "git", "enabled": false, "useIgnoreFile": false }
+}

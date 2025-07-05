@@ -5,26 +5,26 @@ import { vehicleSpecificationsSeed } from "../database/seeds/vehiclesSpecificati
 import { connection, db } from "../utils/db";
 
 const promises = [
-  vehicleSpecificationsSeed,
-  seedVehicles,
-  seedOwners,
-  seedMechanics,
+	vehicleSpecificationsSeed,
+	seedVehicles,
+	seedOwners,
+	seedMechanics,
 ];
 
 export default defineTask({
-  meta: {
-    name: "db:seed",
-    description: "Run database seed task",
-  },
-  async run() {
-    console.log("Running DB seed task...");
+	meta: {
+		name: "db:seed",
+		description: "Run database seed task",
+	},
+	async run() {
+		console.log("Running DB seed task...");
 
-    for (const promise of promises) {
-      await promise(db).then((result) => console.log(result));
-    }
+		for (const promise of promises) {
+			await promise(db).then(result => console.log(result));
+		}
 
-    await connection.end();
+		await connection.end();
 
-    return { result: "success" };
-  },
+		return { result: "success" };
+	},
 });
