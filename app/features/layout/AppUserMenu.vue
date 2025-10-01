@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { DropdownMenuItem } from "@nuxt/ui";
-import { profileRoutes } from "~/utils/routes";
+import { profileRoutes } from "~~/app/utils/routes";
 
 const { t } = useI18n();
 

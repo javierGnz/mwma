@@ -1,7 +1,32 @@
 {
+	"dependencies": {
+		"@nuxt/scripts": "0.11.10",
+		"@nuxt/ui": "3.3.2",
+		"@nuxtjs/i18n": "10.0.5",
+		"@nuxtjs/supabase": "1.6.0",
+		"@unhead/vue": "^2.0.14",
+		"dotenv": "^17.2.1",
+		"drizzle-orm": "^0.44.4",
+		"nuxt": "^4.0.3",
+		"postgres": "^3.4.7",
+		"ramda": "^0.31.3",
+		"tailwindcss": "^4.1.12",
+		"vue": "^3.5.18",
+		"vue-router": "^4.5.1",
+		"zod": "^4.0.17"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.2.0",
+		"@faker-js/faker": "^9.9.0",
+		"@iconify-json/lucide": "^1.2.62",
+		"@tailwindcss/vite": "^4.1.12",
+		"@types/node": "^24.3.0",
+		"drizzle-kit": "^0.31.4",
+		"supabase": "^2.34.3",
+		"typescript": "^5.9.2"
+	},
 	"name": "nuxt-app",
 	"private": true,
-	"type": "module",
 	"scripts": {
 		"build": "nuxt build",
 		"db:cleanup": "supabase stop --no-backup",
@@ -14,33 +39,8 @@
 		"db:studio": "drizzle-kit studio",
 		"dev": "nuxt dev",
 		"generate": "nuxt generate",
-		"preview": "nuxt preview",
-		"postinstall": "nuxt prepare"
+		"postinstall": "nuxt prepare",
+		"preview": "nuxt preview"
 	},
-	"dependencies": {
-		"@nuxt/scripts": "0.11.8",
-		"@nuxt/ui": "3.2.0",
-		"@nuxtjs/i18n": "9.5.6",
-		"@nuxtjs/supabase": "1.5.3",
-		"@unhead/vue": "^2.0.11",
-		"dotenv": "^17.0.1",
-		"drizzle-orm": "^0.44.2",
-		"nuxt": "^3.17.6",
-		"postgres": "^3.4.7",
-		"ramda": "^0.31.3",
-		"tailwindcss": "^4.1.11",
-		"vue": "^3.5.17",
-		"vue-router": "^4.5.1",
-		"zod": "^3.25.74"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.0.6",
-		"@faker-js/faker": "^9.9.0",
-		"@iconify-json/lucide": "^1.2.55",
-		"@tailwindcss/vite": "^4.1.11",
-		"@types/node": "^24.0.10",
-		"drizzle-kit": "^0.31.4",
-		"supabase": "^2.30.4",
-		"typescript": "^5.8.3"
-	}
+	"type": "module"
 }

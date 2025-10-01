@@ -34,7 +34,7 @@ const value = ref("Backlog");
       <template v-if="status === 'pending'">
         <USkeleton class="h-4 w-full" />
       </template>
-      <UTable v-else :data="vehicles" class="flex-1" />
+      <UTable v-else :data="vehicles ?? []" class="flex-1" />
     </UCard>
   </div>
 </template>

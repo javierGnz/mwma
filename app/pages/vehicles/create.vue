@@ -52,6 +52,7 @@ const handleSubmit = async (event: FormSubmitEvent<Schema>) => {
 				</div>
 			</div>
 		</div>
+		<CreateVehicleForm />
 		<UForm :schema="schema" :state="state" class="space-y-4" @submit="handleSubmit">
     	<UFormField label="License Plate" name="licensePlate">
       	<UInput v-model="state.licensePlate" />

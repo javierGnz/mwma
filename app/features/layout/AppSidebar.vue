@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui";
-import { routes } from "~/utils/routes";
+import { routes } from "~~/app/utils/routes";
 import AppUserMenu from "./AppUserMenu.vue";
 
 const { t } = useI18n();
